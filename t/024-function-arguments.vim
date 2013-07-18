@@ -56,3 +56,38 @@ describe 'splat arguments'
   end
 
 end
+
+describe 'named + splat arguments'
+
+  before
+    function! Varg(foo, ...)
+      return {
+            \ 'a:foo':  a:foo,
+            \ 'a:0':    a:0,
+            \ 'a:1':    a:1,
+            \ 'a:000':  a:000
+            \ }
+    endfunction
+  end
+
+  it 'labels first argument as a:foo'
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    Expect Varg('a','b','c')['a:foo'] == SOLUTION
+  end
+
+  it 'a:0 reports the number of unlabelled arguments'
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    Expect Varg('a','b','c')['a:0'] == SOLUTION
+  end
+
+  it 'a:1 is the first unlabelled argument'
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    Expect Varg('a','b','c')['a:1'] == SOLUTION
+  end
+
+  it 'a:000 is an array of all unlabelled arguments'
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    Expect Varg('a','b','c')['a:000'] == SOLUTION
+  end
+
+end
