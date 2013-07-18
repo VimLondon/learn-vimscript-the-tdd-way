@@ -41,15 +41,18 @@ describe 'splat arguments'
   end
 
   it 'a:0 reports the number of arguments'
-    Expect Varg('a','b')['a:0'] == 2
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    Expect Varg('a','b')['a:0'] == SOLUTION
   end
 
   it 'a:1 is the first argument'
-    Expect Varg('a','b')['a:1'] == 'a'
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    Expect Varg('a','b')['a:1'] == SOLUTION
   end
 
   it 'a:000 is an array of all arguments supplied'
-    Expect Varg('a','b')['a:000'] == ['a','b']
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    Expect Varg('a','b')['a:000'] == SOLUTION
   end
 
 end
