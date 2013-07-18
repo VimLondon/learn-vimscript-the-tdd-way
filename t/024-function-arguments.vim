@@ -27,3 +27,26 @@ describe 'function arguments'
   end
 
 end
+
+describe 'splat arguments'
+
+  before
+    function! Varg(...)
+      return [a:0, a:1, a:000]
+    endfunction
+  end
+
+  it 'a:0 reports the number of arguments'
+    Expect Varg('a','b')[0] == 2
+    Expect Varg('a','b','c')[0] == 3
+  end
+
+  it 'a:1 is the first argument'
+    Expect Varg('a','b')[1] == 'a'
+  end
+
+  it 'a:100 is an array of all arguments supplied'
+    Expect Varg('a','b')[2] == ['a','b']
+  end
+
+end
