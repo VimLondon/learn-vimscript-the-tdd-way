@@ -32,6 +32,32 @@ describe 'function names'
 
 end
 
+describe 'duplicate functions'
+
+  before
+    function! Overload
+      return 'original'
+    endfunction
+  end
+
+  it 'function name won''t overwrite an existing function with same name'
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    function Overload
+      return 'ineffective'
+    endfunction
+    Expect Overload == SOLUTION
+  end
+
+  it 'function! name overwrites any existing function with same name'
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    function! Overload
+      return 'updated'
+    endfunction
+    Expect Overload == SOLUTION
+  end
+
+end
+
 describe 'functions'
 
   before
