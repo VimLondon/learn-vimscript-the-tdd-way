@@ -44,21 +44,25 @@ describe 'functions'
   end
 
   it 'can be invoked with :call'
+    TODO | let SOLUTION = 'YOU TELL ME!'
     call Meow()
-    Expect v:statusmsg == "Meow!"
+    Expect v:statusmsg == SOLUTION
   end
 
   it 'can be invoked with :echom'
+    TODO | let SOLUTION = 'YOU TELL ME!'
     echom GetMeow()
-    Expect v:statusmsg == "Meow String!"
+    Expect v:statusmsg == SOLUTION
   end
 
   it 'is automatically called where {expression} is expected'
-    Expect GetMeow() == "Meow String!"
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    Expect GetMeow() == SOLUTION
   end
 
   it 'returns 0 implicitly (when no return value is specified)'
-    Expect Meow() == 0
+    TODO | let SOLUTION = 'YOU TELL ME!'
+    Expect Meow() == SOLUTION
   end
 
 end
