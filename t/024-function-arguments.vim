@@ -32,21 +32,24 @@ describe 'splat arguments'
 
   before
     function! Varg(...)
-      return [a:0, a:1, a:000]
+      return {
+            \ 'a:0':    a:0,
+            \ 'a:1':    a:1,
+            \ 'a:000':  a:000
+            \ }
     endfunction
   end
 
   it 'a:0 reports the number of arguments'
-    Expect Varg('a','b')[0] == 2
-    Expect Varg('a','b','c')[0] == 3
+    Expect Varg('a','b')['a:0'] == 2
   end
 
   it 'a:1 is the first argument'
-    Expect Varg('a','b')[1] == 'a'
+    Expect Varg('a','b')['a:1'] == 'a'
   end
 
-  it 'a:100 is an array of all arguments supplied'
-    Expect Varg('a','b')[2] == ['a','b']
+  it 'a:000 is an array of all arguments supplied'
+    Expect Varg('a','b')['a:000'] == ['a','b']
   end
 
 end
