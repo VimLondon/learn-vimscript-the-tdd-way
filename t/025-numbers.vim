@@ -34,3 +34,17 @@ describe 'coercion'
 
 end
 
+describe 'division'
+
+  it 'integer division discards remainder'
+    Expect 5 / 2 == 2
+    Expect 5 % 2 == 1
+  end
+
+  it 'floating point division preserves remainder'
+    Expect 5.0 / 2 == 2.5
+    Expect 5 / 2.0 == 2.5
+  end
+
+end
+
