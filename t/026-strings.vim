@@ -26,3 +26,48 @@ describe 'string concatenation'
 
 end
 
+describe 'double quoted strings'
+
+  it 'may contain letters and punctuation'
+    echom "Hello, World!"
+    Expect v:statusmsg == 'Hello, World!'
+  end
+
+  it 'double \\ stands for one literal backslash'
+    echom "Hello\\World!"
+    Expect v:statusmsg == 'Hello\World!'
+  end
+
+  it '\n stands for a newline'
+    echom "Hello\nWorld!"
+    Expect match(v:statusmsg, 'Hello')  ==# 0
+    Expect match(v:statusmsg, '\n')     ==# 5
+    Expect match(v:statusmsg, 'World!') ==# 6
+  end
+
+end
+
+describe 'single quoted strings'
+
+  it 'may contain letters and punctuation'
+    echom 'Hello, World!'
+    Expect v:statusmsg == "Hello, World!"
+  end
+
+  it 'double \\ stands for two literal backslashes'
+    echom 'Hello\\World!'
+    Expect v:statusmsg == "Hello\\\\World!"
+  end
+
+  it '\n stands for backslash n'
+    echom 'Hello\nWorld!'
+    Expect v:statusmsg == "Hello\\nWorld!"
+  end
+
+  it 'two consecutive single quotes stand for a single single quote'
+    echom 'that''s enough'
+    Expect v:statusmsg == "that's enough"
+  end
+
+end
+
