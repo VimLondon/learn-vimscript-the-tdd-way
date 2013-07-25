@@ -1,7 +1,7 @@
 describe 'About True and False'
 
   before
-    function TruthValue(condition)
+    function! TruthValue(condition)
       if a:condition
         return 'truthy'
       else
@@ -10,32 +10,34 @@ describe 'About True and False'
     endfunction
   end
 
-  it '1 is treated as true'
-    Expect TruthValue(1) ==# 'truthy'
+  it 'number 1 is treated as true'
+    Expect 'truthy' ==# TruthValue(1)
   end
 
-  it '0 is treated as false'
-    Expect TruthValue(0) ==# 'falsey'
+  it 'number 0 is treated as false'
+    Expect 'falsey' ==# TruthValue(0)
   end
 
   it '! operator can be used to negate'
-    Expect TruthValue(!0) ==# 'truthy'
-    Expect TruthValue(!!0) ==# 'falsey'
+    Expect 'truthy' ==# TruthValue(!0)
+    Expect 'falsey' ==# TruthValue(!!0)
   end
 
   it 'non-zero numbers are always true'
-    Expect TruthValue(-1) ==# 'truthy'
-    Expect TruthValue(010) ==# 'truthy'
-    Expect TruthValue(0x10) ==# 'truthy'
-    Expect TruthValue(0.1) ==# 'truthy'
-    Expect TruthValue(1.0e3) ==# 'truthy'
+    Expect 'truthy' ==# TruthValue(-1)
+    Expect 'truthy' ==# TruthValue(010)
+    Expect 'truthy' ==# TruthValue(0x10)
   end
 
-  it 'empty strings, empty lists, and empty dictionaries are all true'
-    Expect TruthValue([]) ==# 'truthy'
-    Expect TruthValue({}) ==# 'truthy'
-    Expect TruthValue('') ==# 'truthy'
-    Expect TruthValue("") ==# 'truthy'
+  it 'empty strings are false'
+    Expect 'falsey' ==# TruthValue('')
+    Expect 'falsey' ==# TruthValue("")
   end
+
+  " Notes:
+  " TruthValue(0.1) error: Using Float as a Number
+  " TruthValue([]) error: Using List as a Number
+  " TruthValue({}) error: Using Dictionary as a Number
+  " TODO: write specs to describe these exceptions.
 
 end
