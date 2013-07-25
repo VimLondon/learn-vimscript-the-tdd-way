@@ -27,9 +27,17 @@ describe 'About True and False'
     Expect 'truthy' ==# TruthValue(0x10)
   end
 
-  it 'empty strings are false'
+  it 'strings are false'
     Expect 'falsey' ==# TruthValue('')
     Expect 'falsey' ==# TruthValue("")
+    Expect 'falsey' ==# TruthValue('Hello, World!')
+    Expect 'falsey' ==# TruthValue('Room 101')
+    Expect 'falsey' ==# TruthValue('0 day exploit')
+  end
+
+  it 'strings beginning with a non-zero number are true (Doh!)'
+    Expect 'truthy' ==# TruthValue('101 Dalmations')
+    Expect 'truthy' ==# TruthValue('-1 offset')
   end
 
   " Notes:
