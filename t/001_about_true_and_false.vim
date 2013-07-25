@@ -1,14 +1,12 @@
-describe 'About True and False'
+function! TruthValue(condition)
+  if a:condition
+    return 'truthy'
+  else
+    return 'falsey'
+  endif
+endfunction
 
-  before
-    function! TruthValue(condition)
-      if a:condition
-        return 'truthy'
-      else
-        return 'falsey'
-      endif
-    endfunction
-  end
+describe 'About True and False'
 
   it 'number 1 is treated as true'
     Expect 'truthy' ==# TruthValue(1)
