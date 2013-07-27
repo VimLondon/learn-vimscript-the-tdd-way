@@ -9,6 +9,10 @@ Learn Vimscript the TDD way!
 
 You should have a passing test suite.
 
+Also, it's advised that you install the [vspec][] plugin for Vim, which adds indentation support for vspec files, and syntax highlighting for keywords `describe`, `it`, `before`, `after`, `end`.
+
+[vspec]: https://github.com/kana/vim-vspec
+
 ## Working through the exercises
 
 The exercises are listed in the `t` directory. Open them up in Vim:
