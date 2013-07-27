@@ -52,7 +52,7 @@ describe 'About Functions'
     Expect ___('Meow!') ==# v:statusmsg
   end
 
-  it 'functions are invoked by the :let keyword'
+  it 'functions are invoked by the :let keyword, which assigns the return value to a variable'
     let result = GetMeow()
     Expect ___('Meow!') ==# result
   end
@@ -102,6 +102,31 @@ describe 'About Functions'
     Expect ___('b') ==# NamedAndVariableArguments('a','b','c')['a:1']
     Expect ___('c') ==# NamedAndVariableArguments('a','b','c')['a:2']
     Expect ___(['b','c']) ==# NamedAndVariableArguments('a','b','c')['a:000']
+  end
+
+  it 'function! will overwrite an existing function of same name'
+    function Quicksilver()
+      return 'mercury'
+    endfunction
+    function! Quicksilver()
+      return 'Hg'
+    endfunction
+    Expect ___('Hg') ==# Quicksilver()
+  end
+
+  it 'function (without the bang) raises an error when defining a function whose name is already in use'
+    let caught = 'no'
+    try
+      function Snowflake()
+        return 'I am unique'
+      endfunction
+      function Snowflake()
+        return 'I can never be'
+      endfunction
+    catch /Function Snowflake already exists/
+      let caught = 'yes'
+    endtry
+    Expect ___('yes') ==# caught
   end
 
 end
