@@ -69,18 +69,18 @@ describe 'unpacking a list'
 
 end
 
-describe 'list modification'
+" describe 'list modification'
   " refer to :help list-modification
 
-  it 'let list[index] = value'
-  it 'let list[b:e] = [values]'
-  it 'insert(list, value)'
-  it 'add(list, value)'
-  it 'remove(list, index)'
-  it 'pop === remove(list, -1)'
-  it 'unshift === remove(list, 0)'
+  " it 'let list[index] = value'
+  " it 'let list[b:e] = [values]'
+  " it 'insert(list, value)'
+  " it 'add(list, value)'
+  " it 'remove(list, index)'
+  " it 'pop === remove(list, -1)'
+  " it 'unshift === remove(list, 0)'
 
-end
+" end
 
 describe 'list identity'
   " refer to :help list-identity
