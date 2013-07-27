@@ -1,5 +1,16 @@
 # Outline for Vimscript Dojo
 
+Reordered:
+
+* 001 true and false (021)
+* 002 comparisons
+* 003 numbers
+* 004 strings
+* 005 functions
+* scope: buffer scope (020)
+* lists
+* dictionaries
+
 ## 19. Variables
 
 Get the value of a boolean option, true and false
@@ -38,7 +49,11 @@ explore Varg(foo, ...), a:0, a:1, ..., a:100
 decimal, hex, octal
 float
 
-## 25. Lists
+## 26. Strings
+
+## 27. String functions
+
+## 35. Lists
 
   indexing
   slicing
