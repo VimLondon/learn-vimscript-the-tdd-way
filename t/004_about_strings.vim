@@ -66,4 +66,29 @@ describe 'About Strings'
     Expect ___(1) ==# equal
   end
 
+  it '"+" operator does addition (not concatenation)'
+    let result = '3 mice' + '2 cats'
+    Expect ___(5) ==# result
+  end
+
+  it '"." operator concatenates strings'
+    let result = '3 mice' . '2 cats'
+    Expect ___('3 mice2 cats') ==# result
+  end
+
+  it '"." operator casts numbers to strings'
+    let result = 10 . 'GreenBottles'
+    Expect ___('10GreenBottles') ==# result
+  end
+
+  it '"." operator cannot cast floats to strings'
+    let caught = 'no'
+    try
+      let result = 10.0 . 'GreenBottles'
+    catch /using Float as a String/
+      let caught = 'yes'
+    endtry
+    Expect ___('yes') ==# caught
+  end
+
 end
