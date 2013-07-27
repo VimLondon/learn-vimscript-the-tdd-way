@@ -10,6 +10,15 @@ function! GetMeow()
   return "Meow!"
 endfunction
 
+function! NamedAndVariableArguments(foo, ...)
+  return {
+        \ 'a:foo':  a:foo,
+        \ 'a:0':    a:0,
+        \ 'a:1':    a:1,
+        \ 'a:000':  a:000
+        \ }
+endfunction
+
 describe 'About Functions'
 
   it 'functions must start with an uppercase letter'
@@ -50,6 +59,49 @@ describe 'About Functions'
 
   it 'functions are invoked when used in a context where {expr} is expected'
     Expect ___('Meow!') ==# GetMeow()
+  end
+
+  it 'named arguments can be referenced using scope a: (e.g. a:name)'
+    " :help a:var
+    function! DisplayName(name)
+      return "Hello from " . ___(a:name)
+    endfunction
+
+    Expect "Hello from VimLondon" ==# DisplayName('VimLondon')
+  end
+
+  it 'elipsis argument (...) stands for a variable number of arguments'
+    function! VariableArguments(...)
+      return {
+            \ 'a:0':    a:0,
+            \ 'a:1':    a:1,
+            \ 'a:2':    a:2,
+            \ 'a:000':  a:000
+            \ }
+    endfunction
+
+    Expect ___(2) ==# VariableArguments('a','b')['a:0']
+    Expect ___('a') ==# VariableArguments('a','b')['a:1']
+    Expect ___('b') ==# VariableArguments('a','b')['a:2']
+    Expect ___(['a','b']) ==# VariableArguments('a','b')['a:000']
+  end
+
+  it 'named and elipsis arguments can be combined'
+    function! NamedAndVariableArguments(foo, ...)
+      return {
+            \ 'a:foo':  a:foo,
+            \ 'a:0':    a:0,
+            \ 'a:1':    a:1,
+            \ 'a:2':    a:2,
+            \ 'a:000':  a:000
+            \ }
+    endfunction
+
+    Expect ___(2) ==# NamedAndVariableArguments('a','b','c')['a:0']
+    Expect ___('a') ==# NamedAndVariableArguments('a','b','c')['a:foo']
+    Expect ___('b') ==# NamedAndVariableArguments('a','b','c')['a:1']
+    Expect ___('c') ==# NamedAndVariableArguments('a','b','c')['a:2']
+    Expect ___(['b','c']) ==# NamedAndVariableArguments('a','b','c')['a:000']
   end
 
 end
