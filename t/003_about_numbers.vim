@@ -3,6 +3,7 @@
 describe 'numbers'
 
   it 'assume decimal format'
+    Expect ___ ==# 9
     Expect ___ ==# 5 + 5
   end
 
@@ -16,8 +17,9 @@ describe 'numbers'
   end
 
   it 'numbers prefixed with 0x are interpreted as hexadecimal'
+    Expect ___ ==# 0x1
+    Expect ___ ==# 0xf
     Expect ___ ==# 0x10
-    Expect ___ ==# 0x1 + 0x10
   end
 
   it 'scientific notation can be used to represent floats'
