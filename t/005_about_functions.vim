@@ -10,15 +10,6 @@ function! GetMeow()
   return "Meow!"
 endfunction
 
-function! NamedAndVariableArguments(foo, ...)
-  return {
-        \ 'a:foo':  a:foo,
-        \ 'a:0':    a:0,
-        \ 'a:1':    a:1,
-        \ 'a:000':  a:000
-        \ }
-endfunction
-
 describe 'About Functions'
 
   it 'functions must start with an uppercase letter'
