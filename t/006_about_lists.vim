@@ -51,4 +51,24 @@ describe 'About Lists'
     Expect ___([4, 5, 6, 7, 8, 9]) ==# d
   end
 
+  it 'add()'
+  end
+
+  it 'insert()'
+    let list = [1, 2, 3, 4, 5]
+    call insert(list, 0)
+    Expect ___([0, 1, 2, 3, 4, 5]) ==# list
+  end
+
+  it 'extend()'
+  end
+
+  it 'get()'
+  end
+
+  it 'remove()'
+  end
+
+  it 'index()'
+
 end
