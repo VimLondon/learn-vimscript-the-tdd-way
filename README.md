@@ -2,16 +2,25 @@ Learn Vimscript the TDD way!
 
 ## Setup
 
+The test runner for this Vimscript Dojo depends on ruby tooling. You'll need to have each of the following installed on your system:
+
+* [ruby](http://www.ruby-lang.org/en/downloads/)
+* rubygems
+* [bundler][]
+
+With those dependencies satisfied, run these steps to set up this Vimscript Dojo:
+
 * check out this repository: `git clone git@github.com:VimLondon/learn-vimscript-the-tdd-way.git`
 * `cd learn-vimscript-the-tdd-way`
 * install dependencies: `bundle install`
-* run the tests: `rake`
+* run the tests: `bundle exec rake`
 
 You should have a passing test suite.
 
 Also, it's advised that you install the [vspec][] plugin for Vim, which adds indentation support for vspec files, and syntax highlighting for keywords `describe`, `it`, `before`, `after`, `end`.
 
 [vspec]: https://github.com/kana/vim-vspec
+[bundler]: http://bundler.io/
 
 ## Working through the exercises
 
