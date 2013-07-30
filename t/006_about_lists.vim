@@ -52,13 +52,15 @@ describe 'About Lists'
     Expect ___([4, 5, 6, 7, 8, 9]) ==# d
   end
 
-  it 'add()'
-  end
-
   it 'insert()'
     let list = [1, 2, 3, 4, 5]
     call insert(list, 0)
     Expect ___([0, 1, 2, 3, 4, 5]) ==# list
+  end
+
+  " You're on your own for these...
+  " Write some tests to explore the behavior of these list functions
+  it 'add()'
   end
 
   it 'extend()'
@@ -71,5 +73,6 @@ describe 'About Lists'
   end
 
   it 'index()'
+  end
 
 end
