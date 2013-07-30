@@ -1,3 +1,4 @@
+" REMEMBER TO RUN :source conceal_solutions.vim
 function! ___(value)
   return a:value
 endfunction

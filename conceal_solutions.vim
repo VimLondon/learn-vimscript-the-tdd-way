@@ -2,6 +2,10 @@
 g/^\s*it '/put ='TODO'
 g/TODO/norm ==
 
+" Delete the reminder.
+0
+g/^" REMEMBER TO RUN/d
+
 " Delete the ___() function definition
 0
 /\Vfunction! ___(value)/,/endfunction/delete

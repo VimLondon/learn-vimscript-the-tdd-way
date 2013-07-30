@@ -1,3 +1,4 @@
+" REMEMBER TO RUN :source conceal_solutions.vim
 " http://learnvimscriptthehardway.stevelosh.com/chapters/22.html
 function! ___(value)
   return a:value
