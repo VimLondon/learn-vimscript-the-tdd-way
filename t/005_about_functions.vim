@@ -118,6 +118,7 @@ describe 'About Functions'
       let caught = 'yes'
     endtry
     Expect ___('yes') ==# caught
+    Expect ___('I am unique') ==# Snowflake()
   end
 
 end
