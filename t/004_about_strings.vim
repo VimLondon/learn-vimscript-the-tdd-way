@@ -21,6 +21,11 @@ describe 'About Strings'
     Expect ___("She said, \"Go away\"") ==# string
   end
 
+  it 'in single quotes, the single quote is the only special character'
+    let string = 'that''s enough'
+    Expect ___("that's enough") ==# string
+  end
+
   it 'double quoted strings can contain apostrophes'
     " Replace ___ with the equivalent single-quoted string
     let string = "Don't"
@@ -52,11 +57,6 @@ describe 'About Strings'
     put! =string
     Expect ___("Hello\\nWorld!") ==# getline(1)
     close!
-  end
-
-  it 'in single quotes, the single quote is the only special character'
-    let string = 'that''s enough'
-    Expect ___("that's enough") ==# string
   end
 
   it 'escape characters allow quotes to be quoted'
